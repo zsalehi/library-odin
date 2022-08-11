@@ -13,15 +13,26 @@ function addBookToLibrary () {
     myLibrary.push(book);
 }
 
-myLibrary.forEach(displayBook(book))
+
+//find the table
+const table = document.getElementById("library");
+let row;
+let cell1;
+let cell2;
+let cell3;
 
 function createNewRow () {
-    //find the table
-    const table = document.getElementById("library");
-    const row = table.insertRow(); 
-
+    //insert a row
+    row = table.insertRow(-1);
+    cell1 = row.insertCell(0);
+    cell2 = row.insertCell(1);
+    cell3 = row.insertCell(2); 
 }
 
 function displayBook(book) {
-    
+    cell1.innerHTML = myLibrary.indexOf(this)+1;
+    cell2.innerHTML = book.title;
+    cell3.innerHTML = book.author;
 }
+
+myLibrary.forEach(displayBook(book));
